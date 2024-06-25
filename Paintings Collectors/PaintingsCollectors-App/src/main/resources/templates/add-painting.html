@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main>
+    <form class="welcome add-offer-form"
+          th:method="post"
+          th:action="@{/addPainting}"
+          th:object="${addPaintingDto}">
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add painting</span></h1>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="name" class="h4 mb-2">Name</label>
+            </div>
+            <input type="text"
+                   class="form-control"
+                   id="name"
+                   name="name"
+                   th:field="*{name}"
+                   th:errorclass="is-invalid"/>
+            <small class="danger invalid-feedback"
+                   th:if="${#fields.hasErrors('name')}"
+                   th:text="${#fields.errors('name').getFirst()}">
+
+            </small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="author" class="h4 mb-2">Author</label>
+            </div>
+            <input type="text"
+                   class="form-control"
+                   id="author"
+                   name="author"
+                   th:field="*{author}"
+                   th:errorclass="is-invalid"/>
+            <small class="danger invalid-feedback"
+                   th:if="${#fields.hasErrors('author')}"
+                   th:text="${#fields.errors('author').getFirst()}">
+
+            </small>
+        </div>
+
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="image" class="h4 mb-2">Image URL</label>
+            </div>
+            <textarea type="text"
+                      class="form-control"
+                      id="image"
+                      th:field="*{imageUrl}"
+                      th:errorclass="is-invalid">
+            </textarea>
+            <small class="danger invalid-feedback"
+                   th:if="${#fields.hasErrors('imageUrl')}"
+                   th:text="${#fields.errors('imageUrl').getFirst()}">
+            </small>
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="style" class="h4 mb-2">Style</label>
+            </div>
+            <select class="browser-default custom-select"
+                    id="style"
+                    name="style"
+                    th:field="*{style}"
+                    th:errorclass="is-invalid">
+                <option value="">select</option>
+                <option value="IMPRESSIONISM" style="text-transform: lowercase">IMPRESSIONISM</option>
+                <option value="ABSTRACT" style="text-transform: lowercase">ABSTRACT</option>
+                <option value="EXPRESSIONISM" style="text-transform: lowercase">EXPRESSIONISM</option>
+                <option value="SURREALISM" style="text-transform: lowercase">SURREALISM</option>
+                <option value="REALISM" style="text-transform: lowercase">REALISM</option>
+            </select>
+
+            <small class="danger invalid-feedback"
+                   th:if="${#fields.hasErrors('style')}"
+                   th:text="${#fields.errors('style').getFirst()}"> 
+            </small>
+        </div>
+
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-info  mb-3">Add painting</button>
+        </div>
+
+    </form>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
