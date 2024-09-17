@@ -1,8 +1,14 @@
 package com.paintingscollectors.model.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
+@Getter
+@Setter
+@NoArgsConstructor
 public class AddPaintingDto {
     
     @NotBlank(message = "The name cannot be empty")
@@ -19,36 +25,5 @@ public class AddPaintingDto {
     
     @NotBlank(message = "You must select a style")
     private String style;
-    
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getAuthor() {
-        return author;
-    }
-    
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    
-    public String getImageUrl() {
-        return imageUrl;
-    }
-    
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-    
-    public String getStyle() {
-        return style;
-    }
-    
-    public void setStyle(String style) {
-        this.style = style;
-    }
+
 }

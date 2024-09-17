@@ -1,8 +1,14 @@
 package com.paintingscollectors.model.entity;
 
 import com.paintingscollectors.model.enums.StyleName;
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "styles")
 public class Style {
@@ -17,36 +23,11 @@ public class Style {
     
     @Column(nullable = false)
     private String description;
-    
-    public Style() {
-    }
+
     
     public Style(StyleName styleName, String description) {
         this.styleName = styleName;
         this.description = description;
     }
-    
-    public long getId() {
-        return id;
-    }
-    
-    public void setId(long id) {
-        this.id = id;
-    }
-    
-    public StyleName getStyleName() {
-        return styleName;
-    }
-    
-    public void setStyleName(StyleName styleName) {
-        this.styleName = styleName;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
 }

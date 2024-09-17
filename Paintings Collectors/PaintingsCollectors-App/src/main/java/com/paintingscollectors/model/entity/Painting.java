@@ -2,15 +2,19 @@ package com.paintingscollectors.model.entity;
 
 import com.paintingscollectors.model.enums.StyleName;
 import com.paintingscollectors.session.UserSession;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "paintings")
-
 public class Painting {
     
     @Id
@@ -40,9 +44,6 @@ public class Painting {
     
     @Column(nullable = false)
     private long votes;
-    
-    public Painting() {
-    }
     
     public Painting(String name, 
                     String author, 
@@ -83,43 +84,5 @@ public class Painting {
     }
     
     
-    public User getOwner() {
-        return owner;
-    }
-    
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-    
-    public String getImageUrl() {
-        return imageUrl;
-    }
-    
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-    
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-    
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
-    }
-    
-    public long getVotes() {
-        return votes;
-    }
-    
-    public void setVotes(long votes) {
-        this.votes = votes;
-    }
-    
-    public Style getStyle() {
-        return style;
-    }
-    
-    public void setStyle(Style style) {
-        this.style = style;
-    }
+
 }
